@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TRES EN RAYA | PIXEL EDITION</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>❌</text></svg>">
+    <meta name="theme-color" content="#1a1a2e">
+</head>
+<body>
+    <div class="container">
+        <h1>TRES EN RAYA</h1>
+        <div class="subtitle">PIXEL EDITION</div>
+
+        <!-- MENÚ PRINCIPAL -->
+        <div id="main-menu">
+            <button class="menu-btn" id="btn-bot">🤖 Jugar contra BOT</button>
+            <button class="menu-btn" id="btn-offline">👥 Jugar Offline</button>
+            <button class="menu-btn" id="btn-casual">🌐 Modo Casual</button>
+            <button class="menu-btn" id="btn-competitive">🏆 Modo Competitivo</button>
+            <button class="menu-btn settings-btn" id="btn-settings">⚙️ Ajustes</button>
+        </div>
+
+        <!-- MENÚ DE SELECCIÓN DE SALA CASUAL -->
+        <div id="casual-menu" class="menu">
+            <div class="mode-title">🌐 Modo Casual</div>
+            <div class="menu-options">
+                <button class="menu-btn" id="btn-public-rooms">🌍 Salas Públicas</button>
+                <button class="menu-btn" id="btn-private-rooms">🔒 Salas Privadas</button>
+            </div>
+            <button class="back-btn" id="back-casual-menu">⬅️ Volver</button>
+        </div>
+
+        <!-- MENÚ DE SALAS PÚBLICAS -->
+        <div id="public-rooms-menu" class="menu">
+            <div class="mode-title">🌍 Salas Públicas</div>
+            <div class="menu-options">
+                <button class="menu-btn" id="btn-tournament">🏆 Torneos</button>
+                <button class="menu-btn" id="btn-1v1">⚔️ 1 vs 1 Rápido</button>
+            </div>
+            <button class="back-btn" id="back-public-rooms">⬅️ Volver</button>
+        </div>
+
+        <!-- MENÚ DE SALAS PRIVADAS -->
+        <div id="private-rooms-menu" class="menu">
+            <div class="mode-title">🔒 Salas Privadas</div>
+            <div class="menu-options">
+                <button class="menu-btn" id="btn-create-room">➕ Crear Sala</button>
+                <button class="menu-btn" id="btn-join-room">🔑 Unirse a Sala</button>
+            </div>
+            <button class="back-btn" id="back-private-rooms">⬅️ Volver</button>
+        </div>
+
+        <!-- MENÚ DE CREACIÓN DE SALA PRIVADA -->
+        <div id="create-room-menu" class="menu">
+            <div class="mode-title">🏠 Crear Sala Privada</div>
+            <div class="menu-options">
+                <button class="menu-btn" id="btn-create-tournament">🏆 Torneo</button>
+                <button class="menu-btn" id="btn-create-1v1">⚔️ 1 vs 1</button>
+            </div>
+            <button class="back-btn" id="back-create-room">⬅️ Volver</button>
+        </div>
+
+        <!-- PLACEHOLDERS DE MODOS DE JUEGO -->
+        <div id="bot-menu">
+            <div class="mode-title">🤖 Elige la dificultad</div>
+            <div class="bot-difficulties">
+                <button class="bot-btn" id="bot-easy">Modo Fácil</button>
+                <button class="bot-btn" id="bot-medium">Modo Medio</button>
+                <button class="bot-btn" id="bot-hard">Modo Difícil</button>
+                <button class="bot-btn" id="bot-impossible">Imposible</button>
+            </div>
+            <button class="back-btn" id="back-bot-menu">⬅️ Volver</button>
+        </div>
+        <div id="game-bot">
+            <div class="mode-title" id="bot-game-title">🤖 Modo Fácil (vs BOT)</div>
+            <div id="bot-status" class="bot-status">Turno de: <span id="bot-turn">X</span></div>
+            <div class="board" id="bot-board">
+                <div class="cell" data-index="0"></div>
+                <div class="cell" data-index="1"></div>
+                <div class="cell" data-index="2"></div>
+                <div class="cell" data-index="3"></div>
+                <div class="cell" data-index="4"></div>
+                <div class="cell" data-index="5"></div>
+                <div class="cell" data-index="6"></div>
+                <div class="cell" data-index="7"></div>
+                <div class="cell" data-index="8"></div>
+            </div>
+
+            <button id="bot-restart" class="menu-btn" style="margin-top:1.5rem;">Reiniciar Partida</button>
+            <button class="back-btn" id="back-bot-game">⬅️ Volver a dificultad</button>
+        </div>
+        <div id="game-bot-medium">
+            <div class="mode-title" id="bot-medium-game-title">🤖 Modo Medio (vs BOT)</div>
+            <div id="bot-medium-status" class="bot-status">Turno de: <span id="bot-medium-turn">X</span></div>
+            <div class="board" id="bot-medium-board">
+                <div class="cell" data-index="0"></div>
+                <div class="cell" data-index="1"></div>
+                <div class="cell" data-index="2"></div>
+                <div class="cell" data-index="3"></div>
+                <div class="cell" data-index="4"></div>
+                <div class="cell" data-index="5"></div>
+                <div class="cell" data-index="6"></div>
+                <div class="cell" data-index="7"></div>
+                <div class="cell" data-index="8"></div>
+            </div>
+            <button id="bot-medium-restart" class="menu-btn" style="margin-top:1.5rem;">Reiniciar Partida</button>
+            <button class="back-btn" id="back-bot-medium-game">⬅️ Volver a dificultad</button>
+        </div>
+        <div id="game-bot-hard">
+            <div class="mode-title" id="bot-hard-game-title">🤖 Modo Difícil (vs BOT)</div>
+            <div id="bot-hard-status" class="bot-status">Turno de: <span id="bot-hard-turn">X</span></div>
+            <div class="board" id="bot-hard-board">
+                <div class="cell" data-index="0"></div>
+                <div class="cell" data-index="1"></div>
+                <div class="cell" data-index="2"></div>
+                <div class="cell" data-index="3"></div>
+                <div class="cell" data-index="4"></div>
+                <div class="cell" data-index="5"></div>
+                <div class="cell" data-index="6"></div>
+                <div class="cell" data-index="7"></div>
+                <div class="cell" data-index="8"></div>
+            </div>
+            <button id="bot-hard-restart" class="menu-btn" style="margin-top:1.5rem;">Reiniciar Partida</button>
+            <button class="back-btn" id="back-bot-hard-game">⬅️ Volver a dificultad</button>
+        </div>
+        <div id="game-bot-impossible">
+            <div class="mode-title" id="bot-impossible-game-title">🤖 Modo Imposible (vs BOT)</div>
+            <div id="bot-impossible-status" class="bot-status">Turno de: <span id="bot-impossible-turn">X</span></div>
+            <div class="board" id="bot-impossible-board">
+                <div class="cell" data-index="0"></div>
+                <div class="cell" data-index="1"></div>
+                <div class="cell" data-index="2"></div>
+                <div class="cell" data-index="3"></div>
+                <div class="cell" data-index="4"></div>
+                <div class="cell" data-index="5"></div>
+                <div class="cell" data-index="6"></div>
+                <div class="cell" data-index="7"></div>
+                <div class="cell" data-index="8"></div>
+            </div>
+            <button id="bot-impossible-restart" class="menu-btn" style="margin-top:1.5rem;">Reiniciar Partida</button>
+            <button class="back-btn" id="back-bot-impossible-game">⬅️ Volver a dificultad</button>
+        </div>
+        <div id="game-offline">
+            <div class="mode-title" id="offline-game-title">👥 Modo Offline</div>
+            <div class="scoreboard" id="offline-scoreboard">
+                <div>👤 Jugador X: <span id="offline-score-x">0</span></div>
+                <div>👤 Jugador O: <span id="offline-score-o">0</span></div>
+            </div>
+            <div id="offline-status" class="bot-status">Turno de: <span id="offline-turn">X</span></div>
+            <div class="board" id="offline-board">
+                <div class="cell" data-index="0"></div>
+                <div class="cell" data-index="1"></div>
+                <div class="cell" data-index="2"></div>
+                <div class="cell" data-index="3"></div>
+                <div class="cell" data-index="4"></div>
+                <div class="cell" data-index="5"></div>
+                <div class="cell" data-index="6"></div>
+                <div class="cell" data-index="7"></div>
+                <div class="cell" data-index="8"></div>
+            </div>
+            <button id="offline-restart" class="menu-btn" style="margin-top:1.5rem;">Reiniciar Partida</button>
+            <button class="back-btn" id="back-offline-game">⬅️ Volver</button>
+        </div>
+        <div id="game-casual">
+            <div class="mode-title">🌐 Modo Casual</div>
+            <div class="placeholder">Juega online sin ranking. (Próximamente)</div>
+            <button class="back-btn">⬅️ Volver</button>
+        </div>
+        <div id="game-competitive">
+            <div class="mode-title">🏆 Modo Competitivo</div>
+            <div class="placeholder">Juega online con ranking. (Próximamente)</div>
+            <button class="back-btn">⬅️ Volver</button>
+        </div>
+
+        <!-- MENÚ DE AJUSTES -->
+        <div id="settings-menu">
+            <div class="mode-title">⚙️ Ajustes</div>
+            <div class="placeholder">Aquí irán los ajustes del juego.</div>
+            <button class="back-btn">⬅️ Volver</button>
+        </div>
+    </div>
+
+    <!-- Contenedor de autenticación -->
+    <div id="auth-container" class="auth-container">
+        <div id="user-profile" class="hidden">
+            <img id="user-avatar" src="" alt="Avatar" class="user-avatar">
+            <span id="username"></span>
+            <button id="logout-btn" class="logout-btn">Cerrar sesión</button>
+        </div>
+        <button id="login-btn" class="login-btn">
+            <img src="https://github.githubassets.com/images/modules/logos/GitHub-Mark-Light-32px.png" alt="GitHub">
+            Iniciar sesión
+        </button>
+    </div>
+
+    <!-- Biblioteca de confeti -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="auth.js"></script>
+    <script src="game.js"></script>
+</body>
+</html>
